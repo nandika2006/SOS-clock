@@ -1,0 +1,55 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Geofencing Alerts</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                background-color: #f4f4f9;
+                padding: 20px;
+            }
+    
+            h1 {
+                color: #333;
+            }
+    
+            button {
+                background-color: #007BFF;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+                margin: 10px;
+            }
+    
+            button:hover {
+                background-color: #0056b3;
+            }
+    
+            #status {
+                margin-top: 20px;
+                font-size: 18px;
+                color: #444;
+                padding: 10px;
+                background: #fff;
+                border: 1px solid #ddd;
+                display: inline-block;
+                border-radius: 5px;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h1>Geofencing Alert</h1>
+        <button onclick="goBack()">⬅ Go Back</button>
+        <div id="status">Your status...</div>
+        <script src="geofencing.js"></script>
+    </body>
+    </html>
