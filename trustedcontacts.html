@@ -1,0 +1,25 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manage Trusted Contacts</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    
+        <div class="container">
+            <h2>Manage Trusted Contacts</h2>
+            <input type="text" id="contact-name" placeholder="Contact Name">
+            <input type="tel" id="contact-phone" placeholder="Contact Phone">
+            <button onclick="addTrustedContact()">➕ Add Contact</button>
+    
+            <h3>Saved Contacts</h3>
+            <ul id="contacts-list"></ul>
+    
+            <button onclick="goBack()">⬅ Back</button>
+        </div>
+    
+        <script src="trusted_contacts.js"></script>
+    </body>
+    </html>
