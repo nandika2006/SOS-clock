@@ -1,0 +1,45 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Safe Places</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    
+        <div class="container">
+            <h2>Safe Places Near You</h2>
+            <select id="place-type">
+                <option value="hospital">🏥 Hospital</option>
+                <option value="police station">🚔 Police Station</option>
+            </select>
+            <button id="new"onclick="findSafePlaces()">Find Safe Places</button>
+            <ul id="safe-places-list"></ul>
+            <button onclick="goBack()">⬅ Back</button>
+        </div>
+    
+        <script src="safe_places.js"></script>
+    </body>
+    </html>
+    
+    
+    <!-- <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Safe Zone Alert</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    </head>
+    <body>
+    
+        <h1>Geofencing Safety Alert</h1>
+        <div id="map"></div>
+        <p id="status"></p>
+    
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script src="script.js"></script>
+    </body>
+    </html> -->
