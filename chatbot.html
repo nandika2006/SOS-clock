@@ -1,0 +1,116 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clock</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+        <!-- <a href="forum.html" class="forum-link">Access Community Forum</a> -->
+    </head>
+    <body>
+    
+        <!-- <div id="auth-container">
+            <h2>Login / Register</h2>
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="register()">Register</button>
+            <button onclick="login()">Login</button>
+        </div>
+    
+        <div id="clock-container" style="display: none;">
+            <h1 id="clock">00:00:00</h1>
+            <button id="sos-btn" hidden>🚨 SOS</button>
+            <button onclick="logout()">Logout</button>
+            <button onclick="showTrustedContactsPage()">Manage Trusted Contacts</button>
+            <button id="siren-btn">🔊 Play Siren</button>
+    
+    
+        </div>
+    
+        <div id="trusted-contacts-container" style="display: none;">
+            <h2>Trusted Contacts</h2>
+            <input type="text" id="contact-name" placeholder="Contact Name">
+            <input type="tel" id="contact-phone" placeholder="Contact Phone">
+            <button onclick="addTrustedContact()">Add Contact</button>
+            <!-- <button onclick="removeContact(index)">❌ Remove</button> -->
+            <!-- <ul id="contacts-list"></ul>
+            <button onclick="goToClock()">Done</button>
+        </div>
+    
+    
+        <div id="safe-places-container" style="display: none;">
+            <h2>Safe Places Near You</h2>
+            <button onclick="findSafePlaces()">Find Safe Places</button>
+            <ul id="safe-places-list"></ul>
+            <button onclick="goToClock()">Back</button>
+        </div>
+    
+        <button id="find-places">Find Safe Places</button>
+    <div id="safe-places"></div>
+    <select id="place-type">
+        <option value="hospital">Hospital</option>
+        <option value="police station">Police Station</option>
+    </select>
+    
+    <div id="extra-options" style="display: none;">
+        <button id="manage-contacts">Manage Trusted Contacts</button>
+        <button id="play-siren">Play Siren</button>
+        <button id="find-places">Find Safe Places</button>
+    </div>
+         --> 
+    
+         <body>
+    
+            <div class="container" id="auth-container">
+                <h2>Login / Register</h2>
+                <input type="email" id="email" placeholder="Email">
+                <input type="password" id="password" placeholder="Password">
+                <button onclick="register()">Register</button>
+                <button onclick="login()">Login</button>
+            </div>
+        
+            <div class="container" id="clock-container" style="display: none;">
+                <h1 id="clock">00:00:00</h1>
+                <button id="sos-btn">🚨 SOS</button>
+                <button onclick="logout()">Logout</button>
+                <!-- <button onclick="showTrustedContactsPage()">Manage Trusted Contacts</button> -->
+                <button id="siren-btn">🔊 Play Siren</button>
+            </div>
+        
+            <!-- <div class="container trusted-contacts-container" id="trusted-contacts-container" style="display: none;">
+                <h2>Trusted Contacts</h2>
+                <input type="text" id="contact-name" placeholder="Contact Name">
+                <input type="tel" id="contact-phone" placeholder="Contact Phone">
+                <button onclick="addTrustedContact()">Add Contact</button>
+                <ul id="contacts-list"></ul>
+                <button onclick="goToClock()">Done</button>
+            </div> -->
+        
+            <!-- <div class="container safe-places-container" id="safe-places-container" style="display: none;">
+                <h2>Safe Places Near You</h2>
+                <button onclick="findSafePlaces()">Find Safe Places</button>
+                <ul id="safe-places-list"></ul>
+                <button onclick="goToClock()">Back</button>
+            </div> -->
+            <div id="extra-options">
+            
+            <button id="trust" onclick="window.location.href='trusted_contacts.html'">Manage Trusted Contacts</button>
+            <button id='geofen' onclick="window.location.href='geo.html';">Safe / Risk?</button>
+            <button id="safe" onclick="window.location.href='safe_places.html'" style="display: block;">Find Safe Places</button>
+            <button id="bot" onclick="window.location.href='chatbot.html'">AI Assistant</button>
+            <button id="forum" onClick="window.location.href='forum.html'">Community Forum</button>
+            <button id="edu" onclick="location.href='edu.html'">📚 Educational Resources</button>
+        </div>
+    
+    
+    
+        </body>
+        
+    
+        
+        <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+        <script type="module" src="script.js"></script>
+    </body>
+    </html>
