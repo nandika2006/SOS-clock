@@ -1,0 +1,197 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Community Forum</title>
+    
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f0f0f0;
+            }
+    
+            .forum-container {
+                max-width: 800px;
+                margin: 0 auto;
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                text-align: center; /* Center the button */
+            }
+            
+            .forum-button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 20px 40px;  /* Increase padding for a larger button */
+                border: none;
+                border-radius: 8px;  /* Round the corners more */
+                cursor: pointer;
+                font-size: 24px;  /* Increase font size */
+                width: auto;  /* Ensure the width is automatic to fit content */
+                margin: 0 auto;  /* Center the button */
+            }
+            
+            .forum-button:hover {
+                background-color: #45a049;
+            }
+            .forum-section {
+                display: none;
+            }
+    
+            .message-form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+    
+            .message-form input,
+            .message-form textarea {
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 14px;
+            }
+    
+            .message-form textarea {
+                height: 100px;
+                resize: vertical;
+            }
+    
+            .messages-container {
+                margin-top: 20px;
+            }
+    
+            .message {
+                background: #f9f9f9;
+                padding: 15px;
+                margin-bottom: 10px;
+                border-radius: 4px;
+                border-left: 4px solid #4CAF50;
+            }
+    
+            .message-header {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 8px;
+                color: #666;
+            }
+    
+            .message-content {
+                color: #333;
+            }
+    
+            h2 {
+                color: #333;
+                margin-bottom: 20px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="forum-container">
+            <button id="toggleForum" class="forum-button">Access Community Forum</button>
+    
+            <div id="forumSection" class="forum-section">
+                <h2>Community Forum</h2>
+    
+                <form id="messageForm" class="message-form">
+                    <textarea id="messageInput" placeholder="Share your thoughts or request help..." required></textarea>
+                    <button type="submit" class="forum-button">Post Message</button>
+                </form>
+    
+                <div id="messagesContainer" class="messages-container">
+                    <h3>Forum Messages:</h3>
+                    <!-- Messages will be displayed here -->
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Toggle forum visibility
+                const toggleButton = document.getElementById('toggleForum');
+                const forumSection = document.getElementById('forumSection');
+    
+                toggleButton.addEventListener('click', function () {
+                    if (forumSection.style.display === 'none' || forumSection.style.display === '') {
+                        forumSection.style.display = 'block';
+                        toggleButton.textContent = 'Hide Community Forum';
+                    } else {
+                        forumSection.style.display = 'none';
+                        toggleButton.textContent = 'Access Community Forum';
+                    }
+                });
+    
+                // Handle message form
+                const messageForm = document.getElementById('messageForm');
+                const messageInput = document.getElementById('messageInput');
+                const messagesContainer = document.getElementById('messagesContainer');
+    
+                function formatDate(dateString) {
+                    const date = new Date(dateString);
+                    return date.toLocaleString();
+                }
+    
+                function displayMessages() {
+                    const messages = JSON.parse(localStorage.getItem('forumMessages')) || [];
+                    const messagesHTML = messages.map(msg => `
+                        <div class="message">
+                            <div class="message-header">
+                                <strong>Anonymous</strong>
+                                <small>${formatDate(msg.timestamp)}</small>
+                            </div>
+                            <div class="message-content">
+                                ${msg.message}
+                            </div>
+                        </div>
+                    `).join('');
+    
+                    messagesContainer.innerHTML = '<h3>Forum Messages:</h3>' + messagesHTML;
+                }
+    
+                messageForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+    
+                    const message = messageInput.value.trim();
+    
+                    if (!message) {
+                        alert('Please enter a message!');
+                        return;
+                    }
+    
+                    // Get existing messages
+                    const messages = JSON.parse(localStorage.getItem('forumMessages')) || [];
+    
+                    // Add new message with anonymous username
+                    const newMessage = {
+                        id: Date.now(),
+                        message: message,
+                        username: 'Anonymous',
+                        timestamp: new Date().toISOString()
+                    };
+    
+                    messages.push(newMessage);
+    
+                    // Save to localStorage
+                    localStorage.setItem('forumMessages', JSON.stringify(messages));
+    
+                    // Clear message input
+                    messageInput.value = '';
+    
+                    // Refresh messages display
+                    displayMessages();
+                });
+    
+                // Initial display of messages
+                displayMessages();
+            });
+        </script>
+    </body>
+    
+    </html>
